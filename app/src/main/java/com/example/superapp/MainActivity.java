@@ -60,47 +60,47 @@ public class MainActivity extends AppCompatActivity {
 
     @SuppressLint("SetTextI18n")
     public void CalcularOperacion(View view) {
-        try{
+        try {
             String nombre = txtNum1.getText().toString();
-            int edad =  Integer.parseInt(txtNum2.getText().toString());
+            int edad = Integer.parseInt(txtNum2.getText().toString());
             String curso = txtNum3.getText().toString();
-            String horario = "";
-            String profesor ="Juan Zamora";
+            String horario = " ";
+            String profesor = " ";
             String group = String.format(grupo.getSelectedItem().toString());
 
 
             if (diurno.isChecked()) {
                 horario = "Diurno";
+                profesor = "Luis Murcia";
             } else if (matutino.isChecked()) {
                 horario = "Matutino";
+                profesor = "Juan Zamora";
             } else if (nocturno.isChecked()) {
                 horario = "Nocturno";
+                profesor = "El pollo loco";
             } else {
                 Toast.makeText(this, "Manito, elige tu horario mi loco", Toast.LENGTH_SHORT).show();
                 return;
             }
 
-           if (checkboxResultadoEnDialog.isChecked()){
-               CustomDialog dialog = new CustomDialog("Bienvenido " + nombre + "\nAl curso de " + curso + "\nTienes " + edad + " años\nAdemás tiene un turno en horario " + horario + " en el grupo "+ group + "\nCon el profesor " + profesor);
-               dialog.show(getSupportFragmentManager(), "TAB");
+            if (checkboxResultadoEnDialog.isChecked()) {
+                CustomDialog dialog = new CustomDialog("Bienvenido: " + nombre + "\nAl curso de: " + curso + "\nTienes: " + edad + " años\nAdemás tiene un turno en horario: " + horario + " en el grupo: " + group + "\nCon el profesor: " + profesor);
+                dialog.show(getSupportFragmentManager(), "TAB");
+                checkboxResultadoEnDialog.setChecked(false);
 
-               dialog.show(getSupportFragmentManager(),"tag");
-
-               checkboxResultadoEnDialog.setChecked(false);
-
-           }else{
-               CustomDialog dialog = new CustomDialog("Bienvenido " + nombre + "\nAl curso de " + curso + "\nTienes " + edad + " años\nAdemás tiene un turno en horario " + horario + " en el grupo "+ group);
-               dialog.show(getSupportFragmentManager(), "TAB");
-               dialog.show(getSupportFragmentManager(),"tag");
-
-               checkboxResultadoEnDialog.setChecked(false);
-           }
+            } else {
+                CustomDialog dialog = new CustomDialog("Bienvenido: " + nombre + "\nAl curso de: " + curso + "\nTienes: " + edad + " años\nAdemás tiene un turno en horario: " + horario + " en el grupo: " + group);
+                dialog.show(getSupportFragmentManager(), "TAB");
+                checkboxResultadoEnDialog.setChecked(false);
+            }
 
 
-        }
-        catch (Exception e)
-        {
-            Toast.makeText(this,"Error, Escoge una opcion",  Toast.LENGTH_SHORT).show();
+        } catch (NumberFormatException e) {
+            Toast.makeText(this, "Error: La edad debe ser un número entero", Toast.LENGTH_SHORT).show();
+        } catch (NullPointerException e) {
+            Toast.makeText(this, "Error: Selecciona una opción", Toast.LENGTH_SHORT).show();
+        } catch (Exception e) {
+            Toast.makeText(this, "Error desconocido: " + e.getMessage(), Toast.LENGTH_SHORT).show();
         }
     }
 

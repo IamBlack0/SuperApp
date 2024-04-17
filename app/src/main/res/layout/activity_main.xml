@@ -7,6 +7,13 @@
     android:orientation="horizontal"
     tools:context=".MainActivity">
 
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/campus2low"
+        android:scaleType="centerCrop"
+        android:alpha="0.6"/>
+
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -60,10 +67,11 @@
         <Spinner
             android:id="@+id/spnGrupo"
             android:textAlignment="center"
+            android:textStyle="bold"
+            android:textSize="50px"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@id/txtNum3"
-            />
+            android:layout_below="@id/txtNum3" />
 
         <RadioGroup
             android:id="@+id/radioGroup"
@@ -77,21 +85,21 @@
 
             <RadioButton
                 android:id="@+id/radioDiurno"
-                android:textSize="40px"
+                android:textSize="50px"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Diurno"/>
+                android:text="DiurnoAM"/>
 
             <RadioButton
                 android:id="@+id/radioMatutino"
-                android:textSize="40px"
+                android:textSize="50px"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Matutino"/>
+                android:text="DiurnoPM"/>
 
             <RadioButton
                 android:id="@+id/radioNocturno"
-                android:textSize="40px"
+                android:textSize="50px"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Nocturno"/>
@@ -102,7 +110,7 @@
         <CheckBox
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textSize="40px"
+            android:textSize="50px"
             android:id="@+id/checkbox"
             android:text="Nombre del profesor"
             android:layout_centerInParent="true"
